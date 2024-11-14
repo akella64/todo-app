@@ -3,10 +3,11 @@ import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Home from './pages/Home';
-import About from './pages/About';
+import Home from '@/pages/Home';
+import About from '@/pages/About';
 
-import './styles/global.css';
+import '@/styles/fonts.css';
+import '@/styles/global.css';
 
 const router = createBrowserRouter([
 	{
