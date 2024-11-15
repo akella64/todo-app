@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Select from '../ui/Select';
+import Select from './Select';
 
 import { TodoStatus } from '@/types/models';
 
@@ -8,6 +8,10 @@ type Option = {
 	title: string;
 	value: TodoStatus | 'all';
 };
+
+interface Props {
+	className?: string;
+}
 
 const OPTIONS: Option[] = [
 	{
@@ -32,7 +36,7 @@ const OPTIONS: Option[] = [
 	},
 ];
 
-export default function SelectStatus() {
+export default function SelectStatus({ className }: Props) {
 	const [status, setStatus] = useState('');
 
 	const handleSelect = (value: string) => {
@@ -43,7 +47,7 @@ export default function SelectStatus() {
 
 	return (
 		<Select
-			className='w-[9.375rem]'
+			className={className}
 			placeholder='Select'
 			onChange={handleSelect}
 			selected={selectedStatus || OPTIONS[0]}

@@ -7,6 +7,7 @@ import Home from '@/pages/Home';
 import About from '@/pages/About';
 
 import '@/styles/fonts.css';
+import '@/styles/variables.css';
 import '@/styles/global.css';
 
 const router = createBrowserRouter([

@@ -4,11 +4,23 @@
 
 @layer components {
 	.base-shadow {
-		@apply shadow-[0rem_0rem_.25rem_0rem_rgb(108,99,255)];
+		@apply shadow-[0rem_0rem_.25rem_0rem_var(--shadowMain)];
+	}
+	.base-transition {
+		@apply transition-all ease-linear duration-150;
+	}
+	.base-transition-transform {
+		@apply transition-transform ease-linear duration-150;
+	}
+	.base-transition-opacity {
+		@apply transition-opacity ease-linear duration-150;
 	}
 }
 
-/* body {
-	background-color: rgb(37, 37, 37);
+body {
+	transition: background-color 150ms linear;
 }
- */
+
+.dark body {
+	background-color: var(--black);
+}

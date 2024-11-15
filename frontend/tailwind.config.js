@@ -15,9 +15,11 @@ export default {
 				padding: '1rem',
 			},
 			colors: {
-				main: '#6C63FF',
-				white: '#F7F7F7',
-				black: '#252525',
+				shadowMain: 'var(--shadowMain)',
+				darkMain: 'var(--darkMain)',
+				main: 'var(--main)',
+				white: 'var(--white)',
+				black: 'var(--black)',
 			},
 			spacing: {
 				0: '0',

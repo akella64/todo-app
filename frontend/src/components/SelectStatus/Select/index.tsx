@@ -60,19 +60,21 @@ export default function Select({
 				onClick={handlePlaceHolderClick}
 				role='button'
 				tabIndex={0}
-				className='w-full bg-main flex justify-between items-center gap-2 p-10 h-40 cursor-pointer rounded-md base-shadow'>
+				className={`w-full bg-main flex justify-between items-center gap-2 p-10 h-40 cursor-pointer rounded-md base-transition ${
+					isOpen ? 'base-shadow bg-darkMain' : ''
+				}`}>
 				<div className='uppercase font-semibold text-white text-md mr-5'>
 					{selected?.title || placeholder}
 				</div>
 				<ArrowIcon
 					width={15}
 					height={15}
-					className={isOpen ? 'rotate-180' : ''}
+					className={`base-transition-transform ${isOpen ? 'rotate-180' : ''}`}
 				/>
 			</div>
 
 			{isOpen && (
-				<ul className='w-full list-style-none mt-5 bg-white border-main border *:text-main *:font-semibold p-10 absolute top-4/4 w-full rounded-md'>
+				<ul className='w-full list-style-none mt-5 bg-white border-main border *:text-main *:font-semibold absolute top-4/4 rounded-md'>
 					{options.map(item => (
 						<Option
 							key={item.value}
