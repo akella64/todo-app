@@ -9,6 +9,9 @@ export default {
 		'./src/styles/global.css',
 	],
 	theme: {
+		fontFamily: {
+			sans: ['Kanit', 'Arial', 'sans-serif'],
+		},
 		extend: {
 			container: {
 				center: true,
@@ -20,6 +23,7 @@ export default {
 				main: 'var(--main)',
 				white: 'var(--white)',
 				black: 'var(--black)',
+				red: 'var(--red)',
 			},
 			spacing: {
 				0: '0',

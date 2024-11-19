@@ -8,9 +8,7 @@ generator client {
 }
 
 model Todo {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  date_create DateTime
-  status      String   @default("pending")
+  id     Int    @id @default(autoincrement())
+  title  String
+  status String @default("complete")
 }

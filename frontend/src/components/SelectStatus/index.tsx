@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Select from './Select';
+import Select from '@/components/ui/Select';
 
 import { TodoStatus } from '@/types/models';
 
@@ -19,20 +19,12 @@ const OPTIONS: Option[] = [
 		value: 'all',
 	},
 	{
-		title: 'Is pending',
-		value: 'pending',
+		title: 'Complete',
+		value: 'complete',
 	},
 	{
-		title: 'In progress',
-		value: 'in_progress',
-	},
-	{
-		title: 'Completed',
-		value: 'completed',
-	},
-	{
-		title: 'Is Canceled',
-		value: 'canceled',
+		title: 'Incomplete',
+		value: 'incomplete',
 	},
 ];
 

@@ -7,14 +7,6 @@ import { Todo, Prisma } from '@prisma/client';
 export class TodoService {
   constructor(private prisma: PrismaService) {}
 
-  async todo(id: number): Promise<Todo | null> {
-    return this.prisma.todo.findUnique({
-      where: {
-        id,
-      },
-    });
-  }
-
   async todos(): Promise<Todo[]> {
     return this.prisma.todo.findMany();
   }
@@ -25,9 +17,7 @@ export class TodoService {
     });
   }
 
-  // доделать
-
-  /*   async updateTodo(params: {
+  async updateTodo(params: {
     id: number;
     data: Prisma.TodoUpdateInput;
   }): Promise<Todo> {
@@ -38,7 +28,7 @@ export class TodoService {
         id,
       },
     });
-  } */
+  }
 
   async deleteTodo(id: number): Promise<Todo> {
     return this.prisma.todo.delete({

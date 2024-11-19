@@ -9,11 +9,17 @@
 	.base-transition {
 		@apply transition-all ease-linear duration-150;
 	}
+	.base-transition-colors {
+		@apply transition-colors ease-linear duration-150;
+	}
 	.base-transition-transform {
 		@apply transition-transform ease-linear duration-150;
 	}
 	.base-transition-opacity {
 		@apply transition-opacity ease-linear duration-150;
+	}
+	.btn {
+		@apply flex items-center justify-center text-center rounded-md;
 	}
 }
 
