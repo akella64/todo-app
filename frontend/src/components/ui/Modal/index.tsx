@@ -5,17 +5,10 @@ interface Props {
 	children: React.ReactNode;
 	title?: React.ReactNode;
 	open: boolean;
-	width?: number;
 	onClose: () => void;
 }
 
-export default function Modal({
-	children,
-	title,
-	open,
-	width,
-	onClose,
-}: Props) {
+export default function Modal({ children, title, open, onClose }: Props) {
 	const handleClickBackdropModal = (e: React.MouseEvent<HTMLDivElement>) => {
 		if (e.target === e.currentTarget) onClose();
 	};
@@ -50,12 +43,11 @@ export default function Modal({
 				<div>
 					<div className='fixed inset-0 z-[1000] h-full bg-[rgba(0,0,0,0.45)] pointer-events-none'></div>
 					<div
-						className='fixed inset-0 z-[1000] overflow-auto outline-none'
+						className='fixed inset-0 z-[1000] overflow-auto outline-none px-[1rem]'
 						tabIndex={-1}
 						onClick={handleClickBackdropModal}>
 						<dialog
-							className='relative mx-auto p-20 top-100 block rounded-lg bg-white dark:bg-black border border-white'
-							style={{ width: `${width || 500}px` }}
+							className='relative mx-auto p-20 top-100 block rounded-lg bg-white dark:bg-black border border-white sm:!w-[31.25rem] !w-full'
 							onClick={handleDialogClick}>
 							{title}
 							{children}

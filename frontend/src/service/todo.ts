@@ -5,11 +5,23 @@ import type {
 	CreateTodoByIdParams,
 	UpdateTodoByIdParams,
 	RemoveTodoByIdParams,
+	GetTodosParams,
 } from '@/types/requests';
 import type { AxiosResponse } from 'axios';
 
-export const getTodos = async () => {
-	const response: AxiosResponse<Todo[]> = await API.get('/todos');
+export const getTodos = async ({ search }: GetTodosParams) => {
+	const params = new URLSearchParams();
+
+	if (search) {
+		for (const k of Object.keys(search) as Array<keyof typeof search>) {
+			const value = search[k];
+			if (value !== undefined) {
+				params.append(k, String(value));
+			}
+		}
+	}
+
+	const response: AxiosResponse<Todo[]> = await API.get(`/todos?${params}`);
 
 	return response.data;
 };

@@ -6,18 +6,32 @@ import {
   Body,
   Delete,
   Put,
+  Query,
 } from '@nestjs/common';
 
 import { TodoService } from './todo.service';
-import { Todo } from '@prisma/client';
+import { Todo, Prisma } from '@prisma/client';
 
 @Controller()
 export class TodoController {
   constructor(private readonly todoService: TodoService) {}
 
   @Get('todos')
-  async getTodos(): Promise<Todo[]> {
-    return this.todoService.todos();
+  async getTodos(
+    @Query('title') title?: string,
+    @Query('status') status?: string,
+  ): Promise<Todo[]> {
+    const filters: Prisma.TodoWhereInput = {};
+
+    if (title) {
+      filters.title = { contains: title };
+    }
+
+    if (status) {
+      filters.status = { equals: status };
+    }
+
+    return this.todoService.todos(filters);
   }
 
   @Post('todos')

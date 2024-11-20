@@ -24,6 +24,7 @@ export default {
 				white: 'var(--white)',
 				black: 'var(--black)',
 				red: 'var(--red)',
+				green: 'var(--green)',
 			},
 			spacing: {
 				0: '0',

@@ -1,4 +1,4 @@
-import type { Todo } from './models';
+import type { Todo, TodoStatus } from './models';
 
 export type TodoData = {
 	data: Omit<Todo, 'id'>;
@@ -12,4 +12,11 @@ export interface UpdateTodoByIdParams extends TodoData {
 
 export interface RemoveTodoByIdParams {
 	id: number;
+}
+
+export interface GetTodosParams {
+	search?: {
+		title?: string;
+		status?: TodoStatus;
+	};
 }

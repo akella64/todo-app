@@ -1,16 +1,18 @@
-import { useState } from 'react';
-
 import Select from '@/components/ui/Select';
 
 import { TodoStatus } from '@/types/models';
 
+type ValueSelectStatus = TodoStatus | 'all';
+
 type Option = {
 	title: string;
-	value: TodoStatus | 'all';
+	value: string;
 };
 
 interface Props {
 	className?: string;
+	statusFilter: ValueSelectStatus;
+	setStatusFilter: React.Dispatch<React.SetStateAction<ValueSelectStatus>>;
 }
 
 const OPTIONS: Option[] = [
@@ -28,14 +30,16 @@ const OPTIONS: Option[] = [
 	},
 ];
 
-export default function SelectStatus({ className }: Props) {
-	const [status, setStatus] = useState('');
-
+export default function SelectStatus({
+	className,
+	setStatusFilter,
+	statusFilter,
+}: Props) {
 	const handleSelect = (value: string) => {
-		setStatus(value);
+		setStatusFilter(value as ValueSelectStatus);
 	};
 
-	const selectedStatus = OPTIONS.find(item => item.value === status);
+	const selectedStatus = OPTIONS.find(item => item.value === statusFilter);
 
 	return (
 		<Select

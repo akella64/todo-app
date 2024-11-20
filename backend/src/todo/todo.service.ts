@@ -7,8 +7,10 @@ import { Todo, Prisma } from '@prisma/client';
 export class TodoService {
   constructor(private prisma: PrismaService) {}
 
-  async todos(): Promise<Todo[]> {
-    return this.prisma.todo.findMany();
+  async todos(where?: Prisma.TodoWhereInput): Promise<Todo[]> {
+    return this.prisma.todo.findMany({
+      where,
+    });
   }
 
   async createTodo(data: Prisma.TodoCreateInput): Promise<Todo> {
