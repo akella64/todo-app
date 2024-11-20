@@ -1,50 +1,72 @@
-# React + TypeScript + Vite
+# To-Do List Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a full-stack To-Do List application built as a portfolio project to showcase my skills in modern web development. The application uses **React**, **TypeScript**, **Tanstack Query**, and **React Router** on the frontend, while the backend is powered by **NestJS** and **Prisma**. It features a simple and responsive UI with a focus on reusable components and efficient data handling.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Follow these steps to run the application locally:
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+   ```
+   git clone https://github.com/akella64/todo-app.git
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Backend setup:**:
 
-- Configure the top-level `parserOptions` property like this:
+1. Navigate to the backend directory:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+cd ./backend
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm i
+```
+
+3. Create the **.env** file
+
+```
+cp .env-sample .env
+```
+
+4. Run the initial Prisma migration:
+
+```
+npm run prisma:init-migrate
+```
+
+5. Start the backend application:
+
+```
+npm run dev
+```
+
+**Frontend setup:**:
+
+1. Open a new terminal window and navigate to the frontend directory:
+
+```
+cd ./frontend
+```
+
+2. Install dependencies:
+
+```
+npm i
+```
+
+3. Create the **.env** file
+
+```
+cp .env-sample .env
+```
+
+4. Start the backend application:
+
+```
+npm run dev
+```
+
+Once both the backend and frontend are running, you can access the application in your browser at http://localhost:5173 (or the port shown in your terminal).
